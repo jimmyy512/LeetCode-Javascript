@@ -21,6 +21,8 @@
  */
 var reverse = function(x) {
     let res=x.toString().split("");
-    let isNegative=res[0]=='-'?true:false;
-    return parseInt(res.reverse().join(''))>=Math.pow(2, 31)?0:isNegative?0-parseInt(res.join('')):parseInt(res.join(''));
-};
+    if(x<0)
+        res.shift()
+    res=parseInt(res.reverse().join(''));
+    return res>=Math.pow(2, 31)? 0 : x<0 ? 0-res : res;
+}
