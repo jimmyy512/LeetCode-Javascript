@@ -39,3 +39,20 @@ var searchInsert = function(nums, target) {
         return i;
     }
 };
+
+
+//上網研究二分法後的寫法
+var searchInsert = function(nums, target) {
+    let start = 0;
+    let end = nums.length-1;
+    while (start<=end){
+        var mid = parseInt(start+(end-start)/2);
+        if(target==nums[mid])
+            return mid;
+        else if(target>nums[mid])
+            start = mid+1;
+        else
+            end = mid-1;
+    }
+    return start;
+}
