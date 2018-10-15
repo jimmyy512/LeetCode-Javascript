@@ -33,19 +33,20 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 
-
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var removeDuplicates = function(nums) {
+    let index=0;
+    let prev=null;
     for(let i=0;i<nums.length;i++)
     {
-        if(i+1 <nums.length && nums[i]==nums[i+1])
+        if(prev!=nums[i])
         {
-            nums.splice(i+1,1);
-            i--;
+            nums[index++]=nums[i];
+            prev=nums[i];
         }
     }
-    return nums.length;
+    return index;
 };
