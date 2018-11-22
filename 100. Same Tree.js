@@ -58,3 +58,24 @@ var isSameTree = function(p, q) {
     find(q,second);
     return JSON.stringify(first)===JSON.stringify(second);
 };
+
+
+
+//遞迴版本
+var find=function(left,right){
+    if((left==null && right!=null) ||
+       (left!=null && right==null))
+        return false;
+
+    if(left==null && right==null)
+        return true;
+    
+    if(left.val!=right.val)
+        return false;
+    
+    return find(left.left,right.left) && find(left.right,right.right);
+}
+
+var isSameTree = function(p, q) {
+    return find(p,q);
+};
