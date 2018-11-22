@@ -46,6 +46,6 @@ var find=function(r1,r2){
 
 var isSymmetric = function(root) {
     if(root==null)
-        return null
+        return true;
     return find(root.left,root.right)
 };
